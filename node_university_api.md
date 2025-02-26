@@ -2,7 +2,7 @@
 
 ---
 
-This API allows prospective students, who want to join a hypothetical Node Institute of Technology, to browse for courses and get details such as Cousrse Description, Course Duration, Cost Per Credit Hour, Career Path, Admission Term, Admission Requirements, Success Rate etc
+This API allows prospective students, who want to join a hypothetical Node Institute of Technology, to browse for courses and get details such as Course Description, Course Duration, Cost Per Credit Hour, Career Path, Admission Term, Admission Requirements, Success Rate etc
 
 The API is available at https://node-university-courses-api.onrender.com
 
@@ -13,6 +13,7 @@ The API is available at https://node-university-courses-api.onrender.com
 ## Get All Courses
 
 **`GET /api/courses`**
+
 Retrieves a list of all available courses currently offered at Node Institute of Technology.
 
 Example response:
@@ -37,20 +38,22 @@ Example response:
 ```
 
 **Parameters**
+
 The following optional parameters can be added to the URL to achieve desired filtering
 
 | Name                       | Type    | In    | Required | Description                                                                                                                                                                                                                           |
 | -------------------------- | ------- | ----- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `duration`                 | string  | query | No       | Specifies the duration of the course. Typical values will be like "3 years", "4 years" etc                                                                                                                                            |
 | `fields`                   | string  | query | No       | Specifies which field(s) of the query you want returned. eg name, duration, fees_per_credit_hour                                                                                                                                      |
-| `success_rate`             | integer | query | No       | Specifies the observed success rate for each course as percentage                                                                                                                                                                     |
+| `success_rate`             | integer | query | No       | Specifies the observed success rate for each course as a percentage                                                                                                                                                                   |
 | `career_path`              | string  | query | No       | A student can query for a course depending on their career choice. eg Data Engineer                                                                                                                                                   |
 | `fees_per_credit_hour[lt]` | integer | query | No       | [lt](which means less than),can be replaced with [lte]-less than or equal to, [gt] -greater than, [gte]-greater than or equal to. Any integer value passed will filter courses having cost per credit hour as per operator specified. |
 
 **Status codes**
-| Status code | Description |
-|-----------------|-----------------------------------------------------|
-| 200 OK | Indicates a successful response. |
+
+| Status code     | Description                                                      |
+| --------------- | ---------------------------------------------------------------- |
+| 200 OK          | Indicates a successful response.                                 |
 | 400 Bad Request | Indicates that the parameters provided are invalid or undefined. |
 
 Example response:
@@ -165,33 +168,38 @@ Eample Response
 },
 ```
 
-## Create an Admmission Requirement
+## Create an Admission Requirement
 
 **`POST /api/admin-requirements`**
+
 The request body must be in JSON format.
 
 **Parameters**
-| Name | Type | In | Required | Description |
-| --------------- | ------- | ----- | -------- | ------------------------------------------------ |
-| `name` | string | body | Yes | Name of the course |
-| `admission_requirements` | string | body | Yes | A brief description of admission requirements (100 characters max) |
-| `term` |[string] | body | Yes | A string array of admission terms (Spring, Fall , Summer) |
+
+| Name                     | Type     | In   | Required | Description                                                        |
+| ------------------------ | -------- | ---- | -------- | ------------------------------------------------------------------ |
+| `name`                   | string   | body | Yes      | Name of the course                                                 |
+| `admission_requirements` | string   | body | Yes      | A brief description of admission requirements (100 characters max) |
+| `term`                   | [string] | body | Yes      | A string array of admission terms (Spring, Fall , Summer)          |
 
 **Status Codes**
-| Status code | Description |
-| ------------- | --------------------------------------------------------- |
-| 201 OK | Indicates an admission requirement has been successifully created |
-| 400 Bad Request | Indicates body parameters are invalid/incomplete |
 
-## Get an Admmission Requirement
+| Status code     | Description                                                       |
+| --------------- | ----------------------------------------------------------------- |
+| 201 OK          | Indicates an admission requirement has been successifully created |
+| 400 Bad Request | Indicates body parameters are invalid/incomplete                  |
+
+## Get an Admission Requirement
 
 **`GET /api/admin-requirements/:course_name`**
+
 Returns a single admission requirement for a given course.
 
 **Parameters**
-| Name | Type | In | Required | Description |
-| --------------| ------- | ----- | -------- | ------------------------------------------------ |
-| `course_name` | string | path | Yes | Returns the admission requirements for a course you have searched for. Eg Mechanical Engineering |
+
+| Name          | Type   | In   | Required | Description                                                                                      |
+| ------------- | ------ | ---- | -------- | ------------------------------------------------------------------------------------------------ |
+| `course_name` | string | path | Yes      | Returns the admission requirements for a course you have searched for. Eg Mechanical Engineering |
 
 **Status codes**
 

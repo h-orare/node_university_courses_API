@@ -4,7 +4,7 @@ exports.getAllAdminRequirements = async (req, res) => {
   try {
     const admissions = await Admission.find();
 
-    res.status(201).json({
+    res.status(200).json({
       status: 'success',
       data: {
         admissions,
@@ -24,7 +24,7 @@ exports.getCourseAdmissionRequirement = async (req, res) => {
       name: { $regex: new RegExp('^' + courseName + '$', 'i') },
     });
 
-    res.status(201).json({
+    res.status(200).json({
       status: 'success',
       data: {
         admissions,

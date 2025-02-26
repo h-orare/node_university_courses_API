@@ -96,41 +96,42 @@ exports.createCourse = async (req, res) => {
 };
 exports.updateCourse = async (req, res) => {
   try {
-    const course = await Course.findByIdAndUpdate(
-      req.params.course_name,
-      req.body,
-      {
-        new: true,
-        runValidators: true,
-      },
-    );
-
-    res.status(202).json({
-      status: 'success',
-      data: {
-        course,
-      },
+    // const course = await Course.findByIdAndUpdate(
+    //   req.params.course_name,
+    //   req.body,
+    //   {
+    //     new: true,
+    //     runValidators: true,
+    //   },
+    // );
+    res.status(405).send({
+      status: 'fail',
+      message: 'Updating Course Not Allowed',
+      // data: {
+      //   course,
+      // },
     });
   } catch (err) {
     res.status(400).json({
       status: 'fail',
-      message: 'Invalid Data',
+      message: 'Updating Course Not Allowed',
     });
   }
 };
 
 exports.deleteCourse = async (req, res) => {
   try {
-    await Course.findByIdAndDelete(req.params.course_name); //no need to save anything coz we are not returning any data
+    // await Course.findByIdAndDelete(req.params.course_name); //no need to save anything coz we are not returning any data
+    // res.status(405);
 
     res.status(204).json({
-      status: 'success',
-      data: null,
+      status: 'Fail',
+      Message: 'Deleting Resource Not Allowed',
     });
   } catch (err) {
     res.status(400).json({
       status: 'fail',
-      message: 'Invalid Data',
+      message: 'Deleting Resource Not Allowed',
     });
   }
 };

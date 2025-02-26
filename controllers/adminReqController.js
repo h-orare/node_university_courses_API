@@ -50,7 +50,8 @@ exports.createAdmissionRequirement = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: 'fail',
-      message: err,
+      message:
+        'This course requirement either already exists or you have exceeded the character limitation on description ',
     });
   }
 };

@@ -124,7 +124,7 @@ exports.deleteCourse = async (req, res) => {
     // await Course.findByIdAndDelete(req.params.course_name); //no need to save anything coz we are not returning any data
     // res.status(405);
 
-    res.status(204).json({
+    res.status(405).json({
       status: 'Fail',
       Message: 'Deleting Resource Not Allowed',
     });

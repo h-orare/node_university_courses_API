@@ -4,7 +4,7 @@
   "description": "Learning REST APIs with Express and Mongo DB",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --no-warnings server.js",
+    "start": "node server.js",
     "prod": "NODE_ENV=production nodemon serverjs"
   },
   "author": "Henry Orare",
